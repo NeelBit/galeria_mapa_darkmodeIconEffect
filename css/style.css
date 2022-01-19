@@ -1,0 +1,582 @@
+:root {
+    /* grey lighten-2 */
+    --colorFondoBlanco: #e0e0e0;
+    --colorPrimario: #784d3c;
+    --colorMarronClaro: rgba(120, 77, 60, 0.5);
+    --colorBlanco: #ffffff;
+    --colorBlancoRelax: #eee6e6;
+    --colorNegro: #000000;
+    --colorNegroRelax: #222;
+
+    /* modo noche de chex */
+    --verdeOcuroUno: #062629;
+    --verdeOscuroDos: #064855;
+    --verdeOscuroTres: #00897f;
+
+    /* Fonts (opensans 400 y 700) */
+    --fuente: 'Open Sans', sans-serif;
+
+    --redondeo: 1rem;
+
+    --separacion: 2rem;
+
+    /* paleta de colores */
+    --azulOscuro: #193498;
+    --azulIntenso: #113CFC;
+    --celeste: #1597E5;
+    --celesteClaro: #69DADB;
+}
+
+html {
+    /* 1rem = 10px */
+    font-size: 62.5%;
+
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuente);
+    font-size: 1.8rem;
+    line-height: 1.5;
+    background-color: var(--celesteClaro);
+    color: var(--colorNegroRelax);
+}
+
+/* Globales: */
+.contenedor {
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+    .contenedor {
+        width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .contenedor {
+        width: min(85%, 120rem);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--colorNegroRelax);
+}
+
+/* headers */
+h1,
+h2,
+h3,
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2.2rem;
+}
+
+h4 {
+    font-size: 2.0rem;
+}
+
+/* imagenes */
+img {
+    max-width: 100%;
+    border-radius: var(--redondeo);
+    margin: 0;
+    vertical-align: top;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Utilidades */
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.bold-negro,
+.activo {
+    background-color: var(--azulIntenso);
+    color: var(--colorNegro);
+    font-weight: 700;
+    text-decoration: underline solid 2px var(--colorNegro);
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+/* subrayado personalizado */
+.underlinePersonalizado {
+    border-radius: var(--redondeoSuave);
+    background: linear-gradient(180deg, var(--celesteClaro) 0%, var(--azulOscuro) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.4rem;
+    background-position: 0 90%;
+    transition: all 0.3s ease-in-out;
+}
+
+.underlinePersonalizado:hover {
+    background-size: 100% 90%;
+}
+
+/* Header */
+.header {
+    background-color: var(--celeste);
+    padding: var(--separacion) 0;
+    margin-bottom: var(--separacion);
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.header__texto p {
+    color: var(--colorBlancoRelax);
+    text-shadow: 1px 1px 2px var(--colorNegroRelax);
+}
+
+:is(.logo, .nav) a {
+    color: var(--colorNegroRelax);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__enlace {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px var(--colorBlancoRelax);
+    padding: 1rem;
+}
+
+.nav a:hover {
+    background-color: var(--azulIntenso);
+}
+
+
+/* galeria */
+.galeria {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--separacion);
+
+    /* modo oscuro */
+    position: relative;
+}
+
+/* buscador */
+form {
+    width: 100%;
+}
+
+.buscador {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscador input,
+.buscador button,
+.mapa button {
+    border-radius: var(--redondeo);
+    padding: 1rem;
+    border: none;
+    text-align: center;
+}
+
+.buscador input {
+    flex: 3 0;
+    width: 70%;
+    background-color: var(--colorFondoBlanco);
+}
+
+.buscador button {
+    flex: 1 0;
+    width: 30%;
+}
+
+/* catergorias */
+.categorias {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+@media (min-width: 480px) {
+    .categorias {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.categorias a {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: var(--redondeo);
+    /* cascada a .activo */
+    /* background-color: var(--celeste); */
+    border: solid black 1px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    text-shadow: 1px 1px 1px var(--colorBlancoRelax);
+    text-align: center;
+    text-transform: uppercase;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categorias a:hover {
+    background-color: var(--azulIntenso);
+}
+
+
+/* galeria__contenido */
+.galeria__contenido {
+    width: 100%;
+    margin: 0;
+}
+
+
+/* muuri */
+.grid {
+    position: relative;
+    width: 100%;
+
+    /* que se carguen todas las imagenes juntas cuando carguen todas */
+    opacity: 0;
+    transition: opacity 0.5s linear 1s;
+}
+
+.imagenes-cargadas {
+    opacity: 1;
+}
+
+.grid .item {
+    display: block;
+    position: absolute;
+    padding: 0;
+    width: calc(100% - 2rem);
+    /* height: 18rem; */
+    margin: 1rem;
+    z-index: 1;
+    /* background: #000; */
+    color: #fff;
+}
+
+@media (min-width: 480px) {
+    .grid .item {
+        width: calc(50% - 2rem);
+    }
+
+}
+
+@media (min-width: 768px) {
+    .grid .item {
+        width: calc(33.3% - 2rem);
+    }
+}
+
+.item-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.item-content img:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+/* imagenes grandes al hacer click */
+
+/* btn-cerrar   y   icon */
+.btn-cerrar {
+    padding: .5rem;
+    margin: 0;
+
+    background-color: rgba(34, 34, 34, 0.7);
+
+    border-radius: 50%;
+
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* alinear elemento flex a la derecha */
+    align-self: flex-end;
+}
+
+.btn-cerrar:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.icon {
+    padding: 0;
+    margin: 0;
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.7);
+    width: 100%;
+    height: 100vh;
+
+    z-index: 1;
+
+    display: none;
+}
+
+.overlay-activo {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay .contenedor-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-img picture {}
+
+.contenedor-img picture img {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    margin: 1rem 0;
+}
+
+.contenedor-img figcaption {
+    padding: 1rem;
+    border-radius: var(--redondeo);
+    background-color: #00897f;
+    text-align: center;
+    font-weight: 700;
+    /* text-shadow: 1px 1px 2px white; */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.contenedor-img figcaption:hover {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👍</text></svg>") 16 0, auto;
+}
+
+
+/* mapa */
+.mapa {
+    margin: var(--separacion);
+}
+
+.mapa button {
+    display: block;
+    margin: var(--separacion) auto;
+}
+
+.info-mapa {
+    padding: 1rem;
+    border-radius: var(--redondeo);
+    text-align: center;
+}
+
+.oculto {
+    display: none;
+}
+
+.elemento-atras {
+    z-index: -1;
+}
+
+.info-mapa-error {
+    background-color: rgba(255, 0, 0, 0.6);
+    text-transform: uppercase;
+}
+
+.info-mapa-correcto {
+    background-color: rgba(0, 128, 0, 0.4);
+    text-transform: uppercase;
+}
+
+#map {
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+    background-color: black;
+}
+
+
+/* modo oscuro */
+#check,
+#icon,
+#theme {
+    position: fixed;
+    width: 4rem;
+    height: 4rem;
+    /* top: -2rem; */
+    top: 0;
+    left: 0;
+}
+
+#check {
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#icon {
+    z-index: 1;
+    background-image: url("../img/darkmode/sol.png");
+    /* height: 4rem; */
+    /* ocupa todo el espacio disponible, casi siempre acompañado de position */
+    /* background-size: cover; */
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* border-radius: 1rem; */
+}
+
+#theme {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#theme #color {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: var(--colorBlancoRelax);
+    transform: translate(-50%, -50%);
+    transition: 2s all linear;
+}
+
+#check:checked~#icon {
+    background-image: url("../img/darkmode/luna.png");
+
+}
+
+#check:checked~#theme #color {
+    background-color: var(--colorBlancoRelax);
+
+    width: calc(100vmax * 3);
+    height: calc(100vmax * 3);
+}
+
+
+/* footer */
+footer {
+    background-color: var(--celeste);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+@media (min-width: 480px) {
+    footer {
+        flex-direction: row;
+    }
+}
+
+.derechos-autor {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.contenedor-footer small {
+    font-size: 1.6rem;
+}
+
+.footer__texto,
+.footer__autor {
+    margin: .2rem auto;
+
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--separacion);
+}
+
+.contenedor-icono {
+    padding: .5rem;
+}
+
+.contenedor-icono a {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 50%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorBlancoRelax);
+}
+
+.contenedor-icono a:hover {
+    /* transform: rotate(0.5turn); */
+    /* transform: rotate(360deg); */
+    /* transform: translate3d(2px, 10%, 3em); */
+
+    /* animation: icono 2.5s; */
+}
+
+.contenedor-icono:hover {
+    /* transform: rotate(0.5turn); */
+    /* transform: rotate(360deg); */
+    /* transform: translate3d(2px, 10%, 3em); */
+
+    animation: icono 1s;
+}
+
+@keyframes icono {
+    from {
+        transform: rotate3d(0, 0, 0, 0);
+    }
+
+    to {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}

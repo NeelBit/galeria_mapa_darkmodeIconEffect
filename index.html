@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Galeria de imagenes con mapa y modo oscuro">
+    <meta name="Keywords" content="galeria, imagenes, mapa, galeria de imagenes, conectores">
+
+    <title>Galería con mapa y modo oscuro</title>
+
+    <!-- prefetch -->
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- estilos -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+</head>
+
+<body>
+    <!-- modo oscuro -->
+    <div class="modo-oscuro">
+        <input type="checkbox" id="check" title="Cambiar a modo día">
+        <span id="icon"></span>
+        <div id="theme">
+            <span id="color">a</span>
+        </div>
+    </div>
+
+    <!--header -->
+    <header class="header">
+
+        <h1 class="logo no-margin no-padding centrar-texto underlinePersonalizado">
+            <a href="index.html">Galería y Mapa</a>
+        </h1>
+
+        <div class="barra contenedor">
+            <nav class="nav">
+                <a class="nav__enlace" href="#galeria">Galería</a>
+                <a class="nav__enlace" href="#mapa">Mapa</a>
+            </nav>
+        </div>
+
+        <div class="header__texto centrar-texto">
+            <h2 class="no-margin">Galería de imágenes y mapa</h2>
+            <p class="no-margin">Una galería de imágenes simple y un mapa, con HTML, CSS y JS</p>
+        </div>
+
+    </header>
+
+    <!-- contenedor principal -->
+    <div class="contenedor">
+
+        <main id="galeria" class="galeria">
+
+            <h2 class="no-margin no-padding">galeria</h2>
+
+            <!-- busqueda -->
+            <form action="" class="buscador">
+                <!-- <label for="buscador"></label> -->
+                <input type="search" name="buscador" id="buscador" placeholder="Busca alguna imagen" aria-label="Busca alguna imagen">
+                <button id="btn-buscar" type="submit">Buscar</button>
+            </form>
+
+            <!-- categorias -->
+            <div id="categorias" class="categorias">
+                <a href="#" data-categoria="todos" class="activo">Todos</a>
+                <a href="#" data-categoria="indicar">Indicar orden</a>
+                <a href="#" data-categoria="iniciar">Iniciar texto</a>
+                <a href="#" data-categoria="introducir">Introducir</a>
+            </div>
+
+            <!-- galeria__contenido -->
+            <section class="galeria__contenido">
+
+                <!-- muuri -->
+                <div class="grid" id="grid">
+
+                    <div class="item" data-categoria="indicar" data-etiqueta="indicar orden cronologico importancia" data-descripcion="Indicar orden cronológico o de importancia">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_indicar_orden.jpg" alt="conectores indicar orden">
+                                <!-- <figcaption>Probando figcaption</figcaption> -->
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="iniciar" data-etiqueta="iniciar texto tema nuevo" data-descripcion="Iniciar un texto o tema nuevo">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_iniciar_texto.jpg" alt="conectores iniciar texto">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="introducir" data-etiqueta="introducir causa" data-descripcion="Introducir una causa">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_intro_causa.jpg" alt="conectores introducir causa">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="introducir" data-etiqueta="introducir comparacion" data-descripcion="Introducir una comparación">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_intro_comparacion.jpg" alt="conectores introducir comparacion">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="introducir" data-etiqueta="introducir efecto" data-descripcion="Introducir un efecto">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_intro_efecto.jpg" alt="conectores introducir efecto">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="introducir" data-etiqueta="introducir ejemplo" data-descripcion="Introducir un ejemplo">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_intro_ejemplo.jpg" alt="conectores introducir ejemplo">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="introducir" data-etiqueta="introducir objecion o idea contraria" data-descripcion="Introducir una objeción o idea contraria">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_intro_objecion_o_idea_contraria.jpg" alt="conectores introducir objecion o idea contraria">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="item" data-categoria="introducir" data-etiqueta="introducir tema nuevo idea adicional" data-descripcion="Introducir una idea adicional">
+                        <div class="item-content">
+                            <picture>
+                                <img src="img/conectores_intro_tema_nuevo.jpg" alt="conectores introducir tema nuevo">
+                            </picture>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- imagenes grandes al hacer click -->
+                <div class="overlay" id="overlay">
+                    <div class="contenedor-img">
+
+                        <button class="btn-cerrar">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff0000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <rect x="4" y="4" width="16" height="16" rx="2" />
+                                <path d="M10 10l4 4m0 -4l-4 4" />
+                            </svg> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff0000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+
+                        <!-- por defecto la primera -->
+                        <picture>
+                            <img src="" alt="">
+                            <figcaption></figcaption>
+                        </picture>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <section id="mapa" class="mapa">
+
+            <h2 class="no-padding centrar-texto">mapa</h2>
+
+            <div class="mapa-contenido" id="map"></div>
+
+            <button>Ir a mi ubicación</button>
+
+            <div class="info-mapa oculto"></div>
+
+        </section>
+
+    </div>
+
+    <!-- footer -->
+    <footer class="contenedor-footer">
+        <div class="derechos-autor">
+            <small class="footer__texto">Todos los derechos reservados 2022</small>
+            <small class="footer__autor">By Neel</small>
+        </div>
+
+        <div class="redes-sociales">
+            <div class="contenedor-icono">
+                <a href="https://twitter.com/NeelBit" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00acee" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="contenedor-icono">
+                <a href="https://github.com/NeelBit" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#171515" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
